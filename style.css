@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:wght@100..900&display=swap');
+
+:root {
+    --background: #F5F5F5;
+    --text: #212121;
+    --primary-color: #F2080B;
+    --primary-text: #F2080B;
+    --shadow-dark: #d0bcbb92;
+    --shadow-light: #ffffff;
+    --shadow-primary-dark: #a10d07;
+    --shadow-primary-light: #ff6b68;
+}
+
+/* BASICS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    scroll-behavior: smooth;
+    color: var(--text);
+    background: var(--background);
+    line-height: 19.2px;
+    max-width: 100dvw;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* SCROLLBAR */
+body::-webkit-scrollbar {
+    width: 8px;
+
+    @media only screen and (max-width: 768px) {
+        width: 3px;
+    }
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-text);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+nav ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.order-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    background-color: transparent;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+.order-link {
+    font-size: 18px;
+    text-transform: none;
+    color: var(--text);
+}
+
+footer .order-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.shadow-box {
+    color: var(--text);
+    background: var(--background);
+    box-shadow: 4px 4px 12px var(--shadow-dark),
+        -4px -4px 12px transparent,
+        inset -4px -4px 12px var(--shadow-dark),
+        inset 4px 4px 12px var(--shadow-light);
+}
+
+.shadow-primary {
+    color: white;
+    background: var(--primary-color);
+    box-shadow: 4px 4px 12px var(--shadow-primary-dark),
+        -4px -4px 12px transparent,
+        inset -4px -4px 12px var(--shadow-primary-dark),
+        inset 4px 4px 12px var(--shadow-primary-light);
+}
+
+.spline-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    transform: preserve-3d;
+    z-index: -5;
+}
+
+spline-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+.loader {
+    display: flex;
+    perspective: 1000px;
+    overflow: visible;
+}
+
+.magenta,
+.cyan {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    transform-origin: 50% 50%;
+    margin: 0 2px;
+}
+
+.magenta {
+    background-color: var(--text);
+    mix-blend-mode: multiply;
+    animation: move-left 1s ease-in-out infinite;
+}
+
+.cyan {
+    background-color: var(--primary-color);
+    mix-blend-mode: multiply;
+    animation: move-right 1s ease-in-out infinite;
+}
+
+@keyframes move-left {
+
+    0%,
+    10% {
+        transform: scale(1) translateX(0);
+    }
+
+    15% {
+        transform: scale(0.8) translateX(-7px);
+    }
+
+    40%,
+    60% {
+        transform: scale(1) translateX(-14px);
+    }
+
+    75% {
+        transform: scale(1.2) translateX(-7px);
+    }
+
+    90%,
+    100% {
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes move-right {
+
+    0%,
+    10% {
+        transform: scale(1) translateX(0);
+    }
+
+    15% {
+        transform: scale(1.2) translateX(7px);
+    }
+
+    40%,
+    60% {
+        transform: scale(1) translateX(14px);
+    }
+
+    75% {
+        transform: scale(0.8) translateX(7px);
+    }
+
+    90%,
+    100% {
+        transform: scale(1) translateX(0);
+    }
+}
